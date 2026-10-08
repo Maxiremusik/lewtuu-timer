@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "lewtuutimer",
+  "version": "${version}",
+  "name": "Lewtuu Timer",
+  "description": "The official timer mod of streamer Lewtuu, used by Lewtuu himself.",
+  "authors": ["Maxiremusik"],
+  "contact": {
+    "sources": "https://github.com/Maxiremusik/lewtuu-timer",
+    "issues": "https://github.com/Maxiremusik/lewtuu-timer/issues"
+  },
+  "environment": "client",
+  "entrypoints": {
+    "client": ["de.lewtuutimer.LewtuuTimerClient"]
+  },
+  "depends": {
+    "fabricloader": ">=0.19.3",
+    "minecraft": ">=26.1",
+    "java": ">=25",
+    "fabric-api": "*"
+  }
+}

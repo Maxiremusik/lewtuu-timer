@@ -1,0 +1,62 @@
+name: Fehler melden
+description: Melde einen Fehler mit dem Timer.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: checkboxes
+    id: searched
+    attributes:
+      label: Vor dem Absenden
+      options:
+        - label: Ich habe nach vorhandenen Issues zu diesem Problem gesucht.
+          required: true
+  - type: input
+    id: minecraft
+    attributes:
+      label: Minecraft-Version
+      placeholder: "26.1 oder 26.2"
+    validations:
+      required: true
+  - type: input
+    id: mod
+    attributes:
+      label: Lewtuu-Timer-Version
+      description: In der Mod-Liste oder im latest.log zu finden.
+      placeholder: "1.3.1"
+    validations:
+      required: true
+  - type: input
+    id: fabric
+    attributes:
+      label: Fabric Loader und Fabric API
+      placeholder: "Loader 0.19.3, Fabric API …"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Was passiert?
+      description: Beschreibe den Fehler und das erwartete Verhalten.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Schritte zum Nachstellen
+      placeholder: |
+        1. Server beitreten
+        2. /timer start eingeben
+        3. …
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs oder Crashbericht
+      description: Füge relevante Auszüge aus logs/latest.log oder dem Crashbericht ein. Entferne vorher persönliche Daten und private Server-Adressen.
+      render: text
+  - type: textarea
+    id: context
+    attributes:
+      label: Weitere Angaben
+      description: Betriebssystem, andere Mods, Einzelspieler oder Server und gegebenenfalls Screenshots.

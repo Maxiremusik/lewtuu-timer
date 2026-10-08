@@ -1,0 +1,8 @@
+.gradle/
+build/
+run/
+.idea/
+*.iml
+.DS_Store
+legacy-1.21.11/
+out/

@@ -1,0 +1,26 @@
+name: Funktionswunsch
+description: Schlage eine Verbesserung für Lewtuu Timer vor.
+title: "[Wunsch] "
+labels: ["enhancement"]
+body:
+  - type: checkboxes
+    id: searched
+    attributes:
+      label: Vor dem Absenden
+      options:
+        - label: Ich habe nach vorhandenen Vorschlägen gesucht.
+          required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: Was möchtest du verbessern?
+      description: Beschreibe, wobei dir die Funktion helfen würde.
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Dein Vorschlag
+      description: Wie soll die Funktion aussehen oder bedient werden?
+    validations:
+      required: true
