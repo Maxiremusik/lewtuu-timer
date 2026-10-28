@@ -13,7 +13,7 @@ final class TimerDisplay {
     }
 
     static Component status(String message) {
-        return Component.literal(message).withStyle(ChatFormatting.LIGHT_PURPLE);
+        return Component.literal(message).withStyle(ChatFormatting.AQUA);
     }
 
     static void showTimer(Minecraft client, Timer timer) {
@@ -34,8 +34,8 @@ final class TimerDisplay {
 
         for (int i = 0; i < value.length(); i++) {
             double amount = (Math.sin(phase + i * LETTER_PHASE_OFFSET) + 1.0) / 2.0;
-            int red = (int) (255 + (199 - 255) * amount);
-            int green = (int) (255 + (125 - 255) * amount);
+            int red = (int) (255 + (173 - 255) * amount);
+            int green = (int) (255 + (216 - 255) * amount);
             int color = (red << 16) | (green << 8) | 255;
             result.append(Component.literal(String.valueOf(value.charAt(i))).withColor(color));
         }

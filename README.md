@@ -1,7 +1,7 @@
 ***Lewtuu Timer***
 
 Die offizielle Timer-Mod von Streamer Lewtuu, von ihm selbst genutzt.
-Zeigt deine Spielzeit mit einem Weiß-Lila-Fade in der Action-Bar an.
+Zeigt deine Spielzeit mit einem Weiß-Hellblau-Fade in der Action-Bar an.
 
 ***Installation***
 
