@@ -1,6 +1,7 @@
 package de.lewtuutimer;
 
 import com.mojang.brigadier.CommandDispatcher;
+import com.mojang.brigadier.arguments.StringArgumentType;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommandRegistrationCallback;
 import net.fabricmc.fabric.api.client.command.v2.ClientCommands;
 import net.fabricmc.fabric.api.client.command.v2.FabricClientCommandSource;
@@ -33,6 +34,9 @@ final class TimerCommands {
     private void registerCommand(CommandDispatcher<FabricClientCommandSource> dispatcher, String commandName) {
         dispatcher.register(ClientCommands.literal(commandName)
             .then(ClientCommands.literal("start").executes(context -> start(context.getSource(), commandName)))
+            .then(ClientCommands.literal("set")
+                .then(ClientCommands.argument("time", StringArgumentType.greedyString())
+                    .executes(context -> set(context.getSource(), StringArgumentType.getString(context, "time")))))
             .then(ClientCommands.literal("stop").executes(context -> stop(context.getSource())))
             .then(ClientCommands.literal("pause").executes(context -> pause(context.getSource())))
             .then(ClientCommands.literal("resume").executes(context -> resume(context.getSource())))
@@ -54,6 +58,27 @@ final class TimerCommands {
         timer.start();
         storage.save(timer);
         source.sendFeedback(TimerDisplay.status("Timer gestartet."));
+        return 1;
+    }
+
+    private int set(FabricClientCommandSource source, String input) {
+        final long millis;
+        try {
+            millis = TimerDuration.parseMillis(input);
+        } catch (IllegalArgumentException | ArithmeticException exception) {
+            source.sendError(Component.literal(
+                "Ungültige Zeit. Beispiele: /timer set 13h 38m 30s oder /timer set 13:38:30."
+            ));
+            return 0;
+        }
+
+        timer.restorePaused(millis);
+        overwriteConfirmationUntil = 0;
+        storage.save(timer);
+        TimerDisplay.showTimer(Minecraft.getInstance(), timer);
+        source.sendFeedback(TimerDisplay.status(
+            "Timer auf " + timer.formatted() + " gesetzt und pausiert. Nutze /timer resume."
+        ));
         return 1;
     }
 

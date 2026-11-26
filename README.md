@@ -13,6 +13,7 @@ Sie wird gegen 26.1 gebaut. Neuere Versionen dürfen sie laden, sind aber nicht 
 ***Befehle***
 
 **/timer start** startet einen neuen Timer. Bei einem vorhandenen Timer bestätigst du das Überschreiben durch erneute Eingabe innerhalb von zehn Sekunden.
+**/timer set 13h 38m 30s** setzt den Timer des aktuellen Servers auf diese Zeit und pausiert ihn. Anschliessend mit **/timer resume** fortsetzen. Alternativ: **/timer set 13:38:30**. Tage (`d`), Stunden (`h`), Minuten (`m`) und Sekunden (`s`) können einzeln oder kombiniert angegeben werden, z. B. **/timer set 30m**. Der bisherige Timer wird ersetzt und die neue Zeit sofort gespeichert.
 **/timer pause** pausiert den Timer und zeigt „Pausiert“ an.
 **/timer resume** setzt den Timer fort.
 **/timer stop** löscht den Timer und blendet ihn aus.
